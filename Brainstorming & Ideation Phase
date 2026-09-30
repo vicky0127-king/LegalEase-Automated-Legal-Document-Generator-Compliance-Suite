@@ -1,0 +1,22 @@
+Problem statement: Startups, freelancers, and small businesses need basic legal documents (NDAs, service agreements, privacy policies) but can't afford a lawyer for every routine contract. Existing templates are static, and reviewing third-party contracts for risk is slow and intimidating.
+
+Proposed solution: A web app that (a) generates tailored contract drafts from a short form, (b) audits any pasted contract for missing or risky clauses, and (c) stores drafts in a searchable vault.
+
+Target users (personas):
+
+Founder Fiona, a startup founder who needs a mutual NDA before an investor meeting tomorrow.
+Freelancer Aria, a consultant who wants a fair MSA with payment terms and a liability cap.
+Ops Omar, a small-business manager who needs to sanity-check a vendor's contract.
+
+Idea shortlist and decision:
+
+Idea	Value	Feasibility	Decision
+Contract generator	High	High	Core feature
+Risk/clause analyzer	High	Medium	Core feature
+Local document vault	Medium	High	Included
+E-signature	Medium	Low (legal/compliance)	Deferred
+Lawyer marketplace	Medium	Low	Out of scope
+
+Unique value proposition: Fast, guided drafting and instant risk feedback in one interface, with a mandatory legal disclaimer on every output.
+
+Key risks identified early: AI output mistaken for legal advice, jurisdiction differences, and confidentiality of user contract data.
