@@ -1,0 +1,26 @@
+Test plan
+
+ID	Test case	Expected result	Type
+T1	Generate each of the 5 templates	Draft appears with party names, date, term, jurisdiction	Functional
+T2	Leave custom clauses empty	Fallback text used ("None explicitly specified")	Edge
+T3	Click Generate twice quickly	Second click ignored (isGenerating guard)	Edge
+T4	Save an empty canvas	Error toast	Validation
+T5	Save, reload the page	Document persists in the vault	Persistence
+T6	Corrupt legalease_vault value	Falls back to sample docs	Robustness
+T7	Search vault by title or party	Filters correctly	Functional
+T8	Analyze the sample risky contract	High-risk badge and multiple findings	Functional
+T9	Analyze text under 30 characters	Error toast	Validation
+T10	Resize to mobile width	Hamburger menu works, no horizontal scroll	UI
+T11	Export .txt and print	File downloads, print dialog opens	Functional
+
+Issues I found by reading the code:
+
+XSS risk (high): renderVaultGrid and filterVault insert doc.title, party names, and content via innerHTML without escaping. A title like <img src=x onerror=alert(1)> would execute. printDocument also writes raw text into HTML. Fix: escape HTML or use textContent.
+Bug: filterVault doesn't hide the empty state, and it shows raw content without the \n cleanup that renderVaultGrid applies.
+Bug: the Enforceability and Liability percentages never update after an audit.
+Logic flaw: any issue at all yields "HIGH RISK DETECTED". There is no medium tier, though the badge markup implies one. The "limitation of liability" check is also bypassed just by the word "indemnify".
+Minor: the "Delaware LLC" option label is hardcoded, so it's wrong for other jurisdictions. The party-b-type values differ from Party A's.
+Minor: document.execCommand('copy') is deprecated, so prefer navigator.clipboard.writeText with the current code as a fallback.
+Minor: the word count does not refresh when the user types in the editor.
+
+Exit criteria: all T1-T11 pass, the XSS issue is fixed, and no high-severity bugs remain open
