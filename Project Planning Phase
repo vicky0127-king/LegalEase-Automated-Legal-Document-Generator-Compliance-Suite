@@ -1,0 +1,30 @@
+Scope: MVP with five templates, the analyzer, the vault, and export.
+
+Work breakdown and timeline (example 6 weeks):
+
+Week	Milestone	Deliverables
+1	Ideation + requirements	Problem statement, personas, SRS
+2	Design	Wireframes, architecture, data model
+3	Core UI	Builder form, editor canvas, tabs
+4	Features	Vault, analyzer, export/print
+5	Testing + fixes	Test report, bug fixes
+6	Docs + demo	User guide, API docs, demo script
+
+Project structure:
+
+legalease/
+├── ai_core/generator.py     # prompts + Gemini calls
+├── legalEaseAPI/main.py     # FastAPI endpoints
+├── frontend/app.py          # Streamlit UI
+├── web/index.html           # this prototype
+├── .env                     # GEMINI_API_KEY (never committed)
+└── requirements.txt
+
+Risk register:
+
+Risk	Impact	Mitigation
+Hallucinated or incorrect clauses	High	Attorney-review disclaimer, human editing, curated templates
+API key leakage	High	Backend proxy, .env, never ship keys in HTML
+Data privacy	High	Avoid storing on servers, add encryption and consent
+Scope creep	Medium	Freeze MVP scope, defer e-sign
+API latency/cost	Medium	Streaming, caching, Flash-tier model
