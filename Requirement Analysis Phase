@@ -1,0 +1,25 @@
+Functional requirements
+
+ID	Requirement
+FR-1	The user can choose a template: NDA, Freelance MSA, Software/IP Assignment, Employment, Privacy/ToS.
+FR-2	The user can enter Party A/B names and entity types, effective date, term, jurisdiction, tone, and custom clauses.
+FR-3	The system generates a draft and streams it into an editable canvas.
+FR-4	The user can edit the draft directly, then copy, export as .txt, or print it.
+FR-5	The user can save drafts to a vault, search, reopen, and delete them.
+FR-6	The user can paste a contract and run a risk audit (severability, liability limits, termination, one-sided terms).
+FR-7	The user can send a vault document straight to the analyzer.
+FR-8	Every draft carries a legal disclaimer.
+FR-9	A dashboard shows project lifecycle status.
+
+Non-functional requirements
+
+Performance: first output within 30 seconds (per your Phase 2 card).
+Security: API keys must never be exposed in the browser; contract text is sensitive.
+Usability: responsive layout (mobile menu included), dark theme, toast feedback.
+Portability: runs in modern browsers with no install.
+Reliability: graceful handling of empty input and corrupted stored data.
+Compliance: clear notice that output is not legal advice.
+
+Constraints and assumptions: Client-side prototype, browser localStorage for persistence, later integration with Gemini via a backend. Templates are US-centric.
+
+Tech requirements: HTML, Tailwind CSS, vanilla JS, Font Awesome, Google Fonts. Target: Python 3.10+, FastAPI, Streamlit, Gemini API.
