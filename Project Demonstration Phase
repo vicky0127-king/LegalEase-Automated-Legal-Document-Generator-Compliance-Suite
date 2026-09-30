@@ -1,0 +1,9 @@
+Demo script (about 5-7 minutes):
+
+Intro (30 s): the problem, and who the app is for.
+Builder (2 min): click the "Tech Startup Mutual NDA" preset and generate. Point out the streaming draft, then edit a line in the canvas and show the live word count.
+Vault (1 min): save the draft, open the Vault tab, search it, and show the pre-loaded samples.
+Analyzer (2 min): load the sample risky agreement and run the audit. Walk through the flagged issues (no severability, unlimited indemnity, indefinite IP retention, zero vendor liability, Cayman jurisdiction) and the recommendation.
+Export (30 s): Copy, .txt download, and print view.
+SDLC Dashboard (30 s): show the lifecycle phases and the architecture card.
+Close (30 s): roadmap (real Gemini integration, dynamic scoring, e-sign, multi-jurisdiction templates) and the legal disclaimer.
