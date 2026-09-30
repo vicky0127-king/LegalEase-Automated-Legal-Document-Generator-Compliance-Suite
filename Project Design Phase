@@ -1,0 +1,33 @@
+Architecture (target):
+
+Browser UI  ->  FastAPI backend  ->  Gemini API
+(HTML/JS)       (auth, prompts,       (generation,
+                 key storage)          analysis)
+     |
+ localStorage vault (prototype) -> database (production)
+
+Module design
+
+Module	Responsibility
+Builder	Form input, template selection, streaming output, editor
+Vault	CRUD on saved documents, search, badge counter
+Analyzer	Text input, rule/AI audit, score badge, findings list
+SDLC Dashboard	Phase tracking cards
+Utilities	Toasts, word count, export, print
+
+Data model (vault record):
+{ id, title, type, partyA, partyB, date, jurisdiction, term, riskScore, content }
+ UI/UX design:
+
+Palette: navy backgrounds with gold accent (legal/trust feel) and cyan for analysis.
+Type: Cinzel for brand, Inter for UI, JetBrains Mono for data.
+Layout: a 5/7 column split (form left, live document right) and four tabs.
+Feedback: pulse status indicator, typing cursor, toast notifications.
+
+Key flows:
+
+Select template, fill form, Generate, edit, Save.
+Vault, choose a document, Analyze, view report.
+Paste text, Run audit, read findings and recommendation.
+
+Prompt design (for real Gemini integration): a system prompt fixing role (drafting assistant), required sections, mandatory disclaimer, and tone, plus a user prompt filled from the form fields. The current tone field is collected but not yet used, so it belongs her
