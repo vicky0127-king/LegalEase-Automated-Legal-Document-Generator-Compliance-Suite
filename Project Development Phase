@@ -1,0 +1,18 @@
+What is implemented in your code:
+
+Responsive shell with four tabs, mobile menu, sticky header.
+Builder with five template functions that interpolate the form data, plus quick presets.
+Simulated streaming (12 characters every 25 ms) into a contenteditable canvas, with a live word and character count.
+Vault backed by localStorage, seeded with two sample documents, with save, search, open, analyze, delete, and clear.
+Analyzer with keyword rules (severability, limitation of liability, termination, "indefinitely" and "zero liability") that produces a findings list and risk badge.
+Export to clipboard, .txt, and print; toast notification system.
+
+Development gaps to close for production:
+
+Replace the template functions with a real Gemini call via a backend, and use the tone field in the prompt.
+Make the analyzer's scores dynamic. Enforceability (82%) and Liability (45%) are static HTML values that never change after a scan.
+Give the header status "Gemini Active, ~240ms" a real health check, since it is currently hardcoded.
+Compute vault riskScore from the analyzer instead of always saving "Low Risk".
+Sanitize all inserted text (see the testing findings below).
+Add real word-count updates when the user edits the canvas (there is no input listener).
+Add a "Save" confirmation when an identical draft already exists, and a Word (.docx) or PDF export.
