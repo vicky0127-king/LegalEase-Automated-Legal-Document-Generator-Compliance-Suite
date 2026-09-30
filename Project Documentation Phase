@@ -1,0 +1,17 @@
+Documents to produce:
+
+User Guide
+Builder: choose a template, fill the fields (or use a preset), click Generate, edit directly, then Save, Copy, Export, or Print.
+Vault: search, open, analyze, delete, clear.
+Analyzer: paste text, or load the sample, then run the audit and read the findings.
+Always have an attorney review before signing.
+Technical Documentation
+Architecture diagram, module responsibilities, and the vault data schema.
+Setup: Python 3.10+, pip install -r requirements.txt, add GEMINI_API_KEY to .env, run uvicorn legalEaseAPI.main:app and streamlit run frontend/app.py.
+API Documentation (FastAPI/Swagger)
+POST /generate: body {doc_type, party_a, party_b, effective_date, term, jurisdiction, tone, custom_clauses}, returns {document_text}.
+POST /analyze: body {text}, returns {risk_level, scores, findings[], recommendation}.
+GET /health: returns {status, latency_ms}.
+Legal and Compliance Notice: the disclaimer wording, data handling statement, and limitations (not legal advice, US-centric templates).
+Test Report: the results table from Phase 6.
+Release Notes: v2.4 features and known issues.
